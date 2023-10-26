@@ -12,7 +12,6 @@ public class Principal {
 				System.out.println(ferrari.acelerar());
 				ferrari.setVelocidade(35.0);
 				System.out.println(ferrari.frear());
-				
 				System.out.println(ferrari.getAno());
 				System.out.println(ferrari.getMarca());
 				ferrari.calcular(2.0);
