@@ -1,4 +1,5 @@
 package padrao;
+import java.util.Scanner;
 
 public class Carro {
 	
@@ -7,32 +8,47 @@ public class Carro {
 		private int ano;
 		private double motor;
 		private double tanque;
-		private double velocidade=0;
+		public double velocidade;
 		public double valorGasolina;
+		public double tanqueCheio;
+		public double gastoTanque;
+		Scanner ler = new Scanner(System.in);
 		
-		
-		public Carro (String marca, String modelo, int ano, double motor, double tanque) { //Método construtor (inicializa os atributos essenciais para um objeto existir)
+		public Carro (String marca, String modelo, int ano, double motor, int tanque) { //Método construtor (inicializa os atributos essenciais para um objeto existir)
 		 this.marca = marca;												//nos () está o que quero mudar
 		 this.modelo = modelo;
 		 this.ano = ano;
 		 this.motor = motor;
-		 this.tanque = tanque;
+		 this.setTanque(tanque);
 		}
+	
+			// TODO Auto-generated constructor stub
+		
+		
 		public void girarChave() {
 			System.out.println("Ligou ou desligou");
 			
 		}
 		public double acelerar() {
-			this.velocidade+=20;     //this é o elemento que aponta o objeto, 
-			return this.velocidade; //eu controlo quem eu acelero através dele
+			if (velocidade >=1) {
+				System.out.println("Acelerando...");
+				velocidade += 20;
+			}if (velocidade == 180) {
+				System.out.println("Você atingiu a velocidade maxima");
+				}
+			return velocidade;
+		
+			             
 		}
 		public double frear () {
-			this.velocidade-=20;
-			return this.velocidade;	
-		}
-		public double getVelocidade() {
-			return this.velocidade;
+			if (velocidade >=1) {
+				System.out.println("Freando...");
+				velocidade -=20;
+			} if (velocidade == 0) {
+				System.out.println("Parado");
 			}
+			return velocidade;
+		}
 		public void setVelocidade (double vel) {
 			this.velocidade += vel;
 		}
@@ -62,6 +78,19 @@ public class Carro {
 		}
 		public void calcular(double valorGasolina) {
 			
+			this.valorGasolina = valorGasolina;
+			System.out.println("Digite o quanto foi gasto do tanque: ");
+			gastoTanque = ler.nextDouble();
+			tanqueCheio = tanque - gastoTanque;
+			System.out.println("Para encher o tanque custará: R$" + (valorGasolina * tanqueCheio) );
+		}
+
+		public double getTanque() {
+			return tanque;
+		}
+
+		public void setTanque(double tanque) {
+			this.tanque = tanque;
 		}
 		
 	}
