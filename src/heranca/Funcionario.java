@@ -1,7 +1,7 @@
 package heranca;
 
 public class Funcionario {
-	private String nome;
+    private String nome;
     private int matricula;
 
     public Funcionario(String nome, int matricula) {
@@ -15,5 +15,13 @@ public class Funcionario {
 
     public void solicitarMaterial() {
         System.out.println(nome + " solicitou material.");
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getMatricula() {
+        return matricula;
     }
 }
